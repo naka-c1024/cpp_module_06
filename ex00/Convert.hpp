@@ -3,6 +3,9 @@
 
 #include <string>
 
+#define ND "Non displayable"
+#define IP "impossible"
+
 class Convert
 {
 public:
@@ -14,6 +17,8 @@ public:
 	Convert(std::string str);
 	void	run();
 
+	void	exePseudoLiteral();
+	void	displayResult(std::string c, std::string i, std::string f, std::string d);
 	void	ensurePossible();
 
 	void	executeChar();
