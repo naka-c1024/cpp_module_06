@@ -20,6 +20,7 @@ public:
 	void	exePseudoLiteral();
 	void	displayResult(std::string c, std::string i, std::string f, std::string d);
 	void	ensurePossible();
+	std::size_t	cntDot(std::string str);
 
 	void	executeChar();
 	void	executeInt();

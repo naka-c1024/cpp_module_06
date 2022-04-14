@@ -3,6 +3,8 @@
 printf "\n"
 ./convert "ab"
 printf "\n"
+./convert 4.2.1
+printf "\n"
 
 ./convert ' '
 printf "\n"
