@@ -23,7 +23,6 @@ Convert &Convert::operator=(const Convert &other)
 
 Convert::Convert(std::string str): _str(str)
 {
-	// 4つ関数を作成する, try catchでやってみる
 }
 
 void	Convert::run()
