@@ -28,11 +28,11 @@ public:
 	void	executeDouble();
 
 private:
-	std::string	_str;
-	char		_char;
-	int			_int;
-	float		_float;
-	double		_double;
+	std::string	str_;
+	char		char_;
+	int			int_;
+	float		float_;
+	double		double_;
 };
 
 #endif /* CONVERT_HPP */

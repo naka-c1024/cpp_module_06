@@ -21,7 +21,7 @@ Convert &Convert::operator=(const Convert &other)
 	return *this;
 }
 
-Convert::Convert(std::string str): _str(str)
+Convert::Convert(std::string str): str_(str)
 {
 }
 
@@ -37,13 +37,13 @@ void	Convert::run()
 
 void	Convert::exePseudoLiteral()
 {
-	if (this->_str == "nan" || this->_str == "+nan" || this->_str == "nanf" || this->_str == "+nanf")
+	if (this->str_ == "nan" || this->str_ == "+nan" || this->str_ == "nanf" || this->str_ == "+nanf")
 		displayResult(IP, IP, "nanf", "nan");
-	else if (this->_str == "-nan" || this->_str == "-nanf")
+	else if (this->str_ == "-nan" || this->str_ == "-nanf")
 		displayResult(IP, IP, "-nanf", "-nan");
-	else if (this->_str == "inf" || this->_str == "+inf" || this->_str == "inff" || this->_str == "+inff")
+	else if (this->str_ == "inf" || this->str_ == "+inf" || this->str_ == "inff" || this->str_ == "+inff")
 		displayResult(IP, IP, "inff", "inf");
-	else if (this->_str == "-inf" || this->_str == "-inff")
+	else if (this->str_ == "-inf" || this->str_ == "-inff")
 		displayResult(IP, IP, "-inff", "-inf");
 }
 
@@ -71,17 +71,17 @@ std::size_t	Convert::cntDot(std::string str)
 
 void	Convert::ensurePossible()
 {
-	if (this->_str.length() == 0)
+	if (this->str_.length() == 0)
 	{
 		displayResult(IP, IP, IP, IP);
 		std::exit(EXIT_FAILURE);
 	}
-	if (std::isalpha(this->_str[0]) == 1 && this->_str[1] != '\0')
+	if (std::isalpha(this->str_[0]) == 1 && this->str_[1] != '\0')
 	{
 		displayResult(IP, IP, IP, IP);
 		std::exit(EXIT_FAILURE);
 	}
-	if (cntDot(this->_str) > 1)
+	if (cntDot(this->str_) > 1)
 	{
 		displayResult(IP, IP, IP, IP);
 		std::exit(EXIT_FAILURE);
@@ -90,15 +90,15 @@ void	Convert::ensurePossible()
 
 void	Convert::executeChar()
 {
-	if (this->_str.length() == 1 && std::isdigit(this->_str[0]) == 0) // アルファベットなどの場合
+	if (this->str_.length() == 1 && std::isdigit(this->str_[0]) == 0) // アルファベットなどの場合
 	{
-		this->_str = std::to_string(this->_str[0]);
+		this->str_ = std::to_string(this->str_[0]);
 	}
-	int	tmp = std::atoi(_str.c_str());
+	int	tmp = std::atoi(str_.c_str());
 	if (std::isprint(tmp))
 	{
-		this->_char = static_cast<char>(tmp);
-		std::cout << "char: \'" << this->_char << "\'" << std::endl;
+		this->char_ = static_cast<char>(tmp);
+		std::cout << "char: \'" << this->char_ << "\'" << std::endl;
 	}
 	else
 	{
@@ -109,8 +109,8 @@ void	Convert::executeInt()
 {
 	try
 	{
-		this->_int = static_cast<int>(std::stoi(this->_str));
-		std::cout << "int: " << this->_int << std::endl;
+		this->int_ = static_cast<int>(std::stoi(this->str_));
+		std::cout << "int: " << this->int_ << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -121,9 +121,9 @@ void	Convert::executeFloat()
 {
 	try
 	{
-		this->_float = static_cast<float>(std::stof(this->_str));
-		std::cout << "float: " << this->_float;
-		if (fmodf(this->_float, 1.0f) == 0)
+		this->float_ = static_cast<float>(std::stof(this->str_));
+		std::cout << "float: " << this->float_;
+		if (fmodf(this->float_, 1.0f) == 0)
 			std::cout << ".0f" << std::endl;
 		else
 			std::cout << std::endl;
@@ -137,14 +137,14 @@ void	Convert::executeDouble()
 {
 	try
 	{
-		this->_double = static_cast<double>(std::stod(this->_str));
-		if (fmod(this->_double, 1.0) == 0)
+		this->double_ = static_cast<double>(std::stod(this->str_));
+		if (fmod(this->double_, 1.0) == 0)
 		{
 			std::cout << std::fixed;
-			std::cout << "double: " << std::setprecision(1) << this->_double << std::endl;
+			std::cout << "double: " << std::setprecision(1) << this->double_ << std::endl;
 		}
 		else
-			std::cout << "double: " << this->_double << std::endl;
+			std::cout << "double: " << this->double_ << std::endl;
 	}
 	catch(const std::exception& e)
 	{
