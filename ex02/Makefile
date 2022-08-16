@@ -12,7 +12,7 @@ DEBUG_FLAGS	:=	-g #-fsanitize=address -fsanitize=undefined
 # env | grep Malloc
 NO_BUILTIN_FLAGS	:=	-fno-builtin
 OBJDIR	:=	./objs
-SRCS	:=	main.cpp
+SRCS	:=	main.cpp Base.cpp
 OBJS	:=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
 DEPS	:=	${OBJS:%.o=%.d}
