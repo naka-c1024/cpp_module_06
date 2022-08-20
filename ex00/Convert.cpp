@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <math.h>
 
-Convert::Convert()
+Convert::Convert(): str_("invalid")
 {
 }
 Convert::~Convert()
@@ -17,6 +17,11 @@ Convert &Convert::operator=(const Convert &other)
 {
 	if (this != &other)
 	{
+		this->str_ = other.str_;
+		this->char_ = other.char_;
+		this->int_ = other.int_;
+		this->float_ = other.float_;
+		this->double_ = other.double_;
 	}
 	return *this;
 }
@@ -109,7 +114,7 @@ void	Convert::executeInt()
 {
 	try
 	{
-		this->int_ = static_cast<int>(std::stoi(this->str_));
+		this->int_ = std::stoi(this->str_);
 		std::cout << "int: " << this->int_ << std::endl;
 	}
 	catch(const std::exception& e)
@@ -121,7 +126,7 @@ void	Convert::executeFloat()
 {
 	try
 	{
-		this->float_ = static_cast<float>(std::stof(this->str_));
+		this->float_ = std::stof(this->str_);
 		std::cout << "float: " << this->float_;
 		if (fmodf(this->float_, 1.0f) == 0)
 			std::cout << ".0f" << std::endl;
@@ -137,7 +142,7 @@ void	Convert::executeDouble()
 {
 	try
 	{
-		this->double_ = static_cast<double>(std::stod(this->str_));
+		this->double_ = std::stod(this->str_);
 		if (fmod(this->double_, 1.0) == 0)
 		{
 			std::cout << std::fixed;

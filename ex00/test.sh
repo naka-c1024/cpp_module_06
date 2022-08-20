@@ -1,41 +1,42 @@
 #!/bin/zsh
+printf '""\n'
 ./convert ""
-printf "\n"
+printf "\nab\n"
 ./convert "ab"
-printf "\n"
+printf "\n4.2.1\n"
 ./convert 4.2.1
-printf "\n"
+printf '\n" "\n'
 
 ./convert ' '
-printf "\n"
+printf "\na\n"
 ./convert a
-printf "\n"
+printf "\n90\n"
 ./convert 90
-printf "\n"
+printf "\n0\n"
 ./convert 0
-printf "\n"
+printf "\ninf\n"
 
 ./convert inf
-printf "\n"
+printf "\n+inf\n"
 ./convert +inf
-printf "\n"
+printf "\n-inf\n"
 ./convert -inf
-printf "\n"
+printf "\nnan\n"
 ./convert nan
-printf "\n"
+printf "\n+nan\n"
 ./convert +nan
-printf "\n"
+printf "\n-nan\n"
 ./convert -nan
-printf "\n"
+printf "\ninff\n"
 ./convert inff
-printf "\n"
+printf "\n+inff\n"
 ./convert +inff
-printf "\n"
+printf "\n-inff\n"
 ./convert -inff
-printf "\n"
+printf "\nnanf\n"
 ./convert nanf
-printf "\n"
+printf "\n+nanf\n"
 ./convert +nanf
-printf "\n"
+printf "\n-nanf\n"
 ./convert -nanf
 printf "\n"
