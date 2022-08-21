@@ -95,7 +95,7 @@ void	Convert::ensurePossible()
 
 void	Convert::executeChar()
 {
-	if (this->str_.length() == 1 && std::isdigit(this->str_[0]) == 0) // アルファベットなどの場合
+	if (this->str_.length() == 1 && std::isdigit(this->str_[0]) == 0)
 	{
 		this->str_ = std::to_string(this->str_[0]);
 	}

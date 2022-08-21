@@ -70,6 +70,8 @@ void identify(Base& p)
 	case 2:
 		std::cout << "class name is C" << std::endl;
 		break;
+	default:
+		std::cout << "class name is unknown" << std::endl;
 	}
 }
 

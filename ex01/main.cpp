@@ -23,6 +23,7 @@ int	main(void)
 
 	Data	*after = deserialize(num);
 	std::cout << "deserialize ptr: " << after << std::endl;
+	std::cout << "data info: ";
 	std::cout << after->a << " " << after->b << " " << after->c << std::endl;
 	return 0;
 }

@@ -4,9 +4,9 @@
 #include <cstdint>
 
 typedef struct{
-	char	a; // 1byte
-	int		b; // 4byte
-	char	c; // 1byte
+	char	a;
+	int		b;
+	char	c;
 }Data;
 
 uintptr_t serialize(Data* ptr);
